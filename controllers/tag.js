@@ -11,10 +11,13 @@ module.exports = function ($youmeb,$sequelize) {
   });
 
   this.index = {
-    path: '/',
+    path: '/all',
     methods: ['all'],
     handler: function (req, res, next) {
-      res.send('tag');
+      Tags.findAll().success(function(tags) {
+        console.log(tags);
+        res.send({data:tags,res:true});
+      });
     }
   };
 

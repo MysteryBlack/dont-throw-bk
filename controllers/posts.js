@@ -33,7 +33,7 @@ module.exports = function ($youmeb,$sequelize) {
     path: '/update',
     methods: ['post'],
     handler: function (req, res, next) {
-      res.send('login');
+      
       Posts.create({
         userid:'1',
         status: 0,
