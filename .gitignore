@@ -1,0 +1,7 @@
+.DS_Store
+config.json
+default.json
+log
+node_modules
+errors
+routes
