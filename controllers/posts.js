@@ -49,10 +49,10 @@ module.exports = function ($youmeb,$sequelize) {
         notice:'none',
         point:0
       }).success(function (fd, err){
-        Tags.bulkCreate(tmp).success(function(d,e) { // Notice: There are no arguments here, as of right now you'll have to...
-          for (var i=0;i<data.length;i++){ 
+        for (var i=0;i<data.length;i++){ 
             tmp.push({postid:fd.dataValues.id,tagid:data[i].id,tagname:data[i].name,x:data[i].x,y:data[i].y,sitename:'7-11南港展覽館分店',addr:'南港展覽館',groupname:'衣櫃'});
           };
+        Tags.bulkCreate(tmp).success(function(d,e) { // Notice: There are no arguments here, as of right now you'll have to...
           console.log(d);
           console.log(e);
           res.send({
