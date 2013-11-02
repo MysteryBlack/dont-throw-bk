@@ -15,8 +15,24 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(15),
       allowNull: false	
     },
-    groupid: {
-      type: DataTypes.INTEGER,
+    picid: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    x: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
+    y: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
+    sitename: {
+      type: DataTypes.STRING(20),
+      allowNull: false
+    },
+    addr: {
+      type: DataTypes.TEXT,
       allowNull: false
     },
     tagname: {
