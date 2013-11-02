@@ -43,7 +43,7 @@ module.exports = function ($youmeb,$sequelize) {
         addr:'南港展覽館',
         notice:'none',
         point:0
-      }).success(functioin(final){
+      }).success(function(final){
         console.log(final);
         res.send({
           res:true
