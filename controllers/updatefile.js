@@ -37,7 +37,7 @@ module.exports = function ($youmeb) {
       var _re = crypto.createHash('md5').update(sArray[0]+_now).digest("hex");
       _re = _re+sArray[1];
       fs.readFile('/'+req.files.file.path, function (_err, data) {
-          var params = {Bucket: 'changepostit',Key:_re,Body:data,ACL: 'public-read'};
+          var params = {Bucket: 'dont-throw',Key:_re,Body:data,ACL: 'public-read'};
           s3.putObject(params, function (err, data) {
             console.log(err);
             if (err) {
