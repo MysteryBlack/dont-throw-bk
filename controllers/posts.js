@@ -46,7 +46,7 @@ module.exports = function ($youmeb,$sequelize) {
       }).success(function(final){
         console.log(final);
         res.send({
-          res:true
+          res:true,
           postid:1
         })
       })
