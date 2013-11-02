@@ -36,9 +36,7 @@ module.exports = function ($youmeb,$sequelize) {
       var data = req.body.data;//console.log(req.body.data);
       var picid = req.body.picid;
       var tmp = [];
-      for (var i=0;i<data.length;i++){ 
-        tmp.push({postid:1,tagid:data[i].id,tagname:data[i].name,x:data[i].x,y:data[i].y,sitename:'7-11南港展覽館分店',addr:'南港展覽館',groupname:'衣櫃'});
-      };
+      
       var jdata = JSON.stringify(data);
       Posts.create({
         userid:'1',
@@ -50,20 +48,18 @@ module.exports = function ($youmeb,$sequelize) {
         addr:'南港展覽館',
         notice:'none',
         point:0
-      }).success(function (final, err){
-        console.log(final);
-        console.log(err);
-        // Tags.bulkCreate(tmp).success(function(d,e) { // Notice: There are no arguments here, as of right now you'll have to...
-        //   console.log(d);
-        //   console.log(e);
-        //   res.send({
-        //     res:true
-        //   })
-        // })
-        // res.send({
-        //   res:true,
-        //   postid:1
-        // })
+      }).success(function (fd, err){
+        Tags.bulkCreate(tmp).success(function(d,e) { // Notice: There are no arguments here, as of right now you'll have to...
+          for (var i=0;i<data.length;i++){ 
+            tmp.push({postid:fd.dataValues.id,tagid:data[i].id,tagname:data[i].name,x:data[i].x,y:data[i].y,sitename:'7-11南港展覽館分店',addr:'南港展覽館',groupname:'衣櫃'});
+          };
+          console.log(d);
+          console.log(e);
+          res.send({
+            res:true,
+            data:d
+          })
+        })
       })
     }
   };
