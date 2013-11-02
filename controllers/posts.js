@@ -39,10 +39,11 @@ module.exports = function ($youmeb,$sequelize) {
       for (var i=0;i<data.length;i++){ 
         tmp.push({postid:1,tagid:data[i].id,tagname:data[i].name,x:data[i].x,y:data[i].y,sitename:'7-11南港展覽館分店',addr:'南港展覽館',groupname:'衣櫃'});
       };
+      var jdata = JSON.stringify(data);
       Posts.create({
         userid:'1',
         status: 0,
-        content:req.body.data,
+        content:jdata,
         x:0,
         y:0,
         sitename:'7-11南港分店',
