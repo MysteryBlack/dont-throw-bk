@@ -3,6 +3,8 @@ var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
 var fs = require('fs');
 AWS.config.loadFromPath('./config.json');
+var im = require('imagemagick');
+
 
 var crypto = require('crypto');
 //加密
@@ -37,6 +39,8 @@ module.exports = function ($youmeb) {
       var _re = crypto.createHash('md5').update(sArray[0]+_now).digest("hex");
       _re = _re+sArray[1];
       fs.readFile('/'+req.files.file.path, function (_err, data) {
+          console.log(req.files.file.path);
+
           var params = {Bucket: 'dont-throw',Key:_re,Body:data,ACL: 'public-read'};
           s3.putObject(params, function (err, data) {
             console.log(err);
