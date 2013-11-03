@@ -3,7 +3,6 @@ var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
 var fs = require('fs');
 AWS.config.loadFromPath('./config.json');
-var im = require('imagemagick');
 
 
 var crypto = require('crypto');
