@@ -39,7 +39,15 @@ module.exports = function ($youmeb) {
       var _re = crypto.createHash('md5').update(sArray[0]+_now).digest("hex");
       _re = _re+sArray[1];
       fs.readFile('/'+req.files.file.path, function (_err, data) {
-          console.log(req.files.file.path);
+          console.log(data);
+          // im.resize({
+          //   srcPath: 'kittens.jpg',
+          //   dstPath: 'kittens-small.jpg',
+          //   width:   256
+          // }, function(err, stdout, stderr){
+          //   if (err) throw err;
+          //   console.log('resized kittens.jpg to fit within 256x256px');
+          // });
 
           var params = {Bucket: 'dont-throw',Key:_re,Body:data,ACL: 'public-read'};
           s3.putObject(params, function (err, data) {
