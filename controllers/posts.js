@@ -26,7 +26,10 @@ module.exports = function ($youmeb,$sequelize) {
     path: '/get/:id',
     methods: ['get'],
     handler: function (req, res, next) {
-      res.send('login');
+      Posts.findOne({id:req.query.id}).success(function(posts) {
+        console.log(posts);
+        res.send({data:posts,res:true});
+      });
     }
   };
   this.updatepost = {
