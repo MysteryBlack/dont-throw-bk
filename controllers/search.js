@@ -14,7 +14,7 @@ module.exports = function ($youmeb,$sequelize) {
     path: '/:key',
     methods: ['get'],
     handler: function (req, res, next) {
-      console.log(req);
+      //console.log(req);
 
       
     }

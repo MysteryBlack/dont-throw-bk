@@ -16,7 +16,7 @@ module.exports = function ($youmeb,$sequelize) {
       Groups.findAll({
         attributes:['groupname']
       }).success(function(project) {
-        console.log(project);
+        //console.log(project);
         res.send({data:project,res:true});
       });
     }

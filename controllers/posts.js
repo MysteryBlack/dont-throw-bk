@@ -16,7 +16,7 @@ module.exports = function ($youmeb,$sequelize) {
     methods: ['all'],
     handler: function (req, res, next) {
       Posts.findAll().success(function(posts) {
-        console.log(posts);
+        //console.log(posts);
         res.send({data:posts,res:true});
       });
     }
@@ -27,7 +27,7 @@ module.exports = function ($youmeb,$sequelize) {
     methods: ['get'],
     handler: function (req, res, next) {
       Posts.findOne({id:req.query.id}).success(function(posts) {
-        console.log(posts);
+        //console.log(posts);
         res.send({data:posts,res:true});
       });
     }

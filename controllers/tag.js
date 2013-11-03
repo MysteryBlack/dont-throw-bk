@@ -15,7 +15,7 @@ module.exports = function ($youmeb,$sequelize) {
     methods: ['all'],
     handler: function (req, res, next) {
       Tags.findAll({order: 'updatedAt DESC'}).success(function(tags) {
-        console.log(tags);
+        //console.log(tags);
         res.send({data:tags,res:true});
       });
     }

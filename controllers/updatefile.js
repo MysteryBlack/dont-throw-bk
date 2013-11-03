@@ -40,7 +40,7 @@ module.exports = function ($youmeb) {
       fs.readFile('/'+req.files.file.path, function (_err, data) {
           var params = {Bucket: 'dont-throw',Key:_re,Body:data,ACL: 'public-read'};
           s3.putObject(params, function (err, data) {
-            console.log(err);
+            //console.log(err);
             if (err) {
             } else {
               fs.unlink('/'+req.files.file.path, function() {
